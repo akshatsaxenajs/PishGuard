@@ -8,7 +8,8 @@ DB_PATH = BASE_DIR / "database" / "threats.db"
 
 
 def get_connection():
-    """Create a database connection."""
+    from pathlib import Path
+    Path(DB_PATH).parent.mkdir(parents=True, exist_ok=True)
     return sqlite3.connect(DB_PATH)
 
 
